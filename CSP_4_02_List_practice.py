@@ -1,3 +1,5 @@
+from operator import truediv
+
 
 def bookends(li: list):
     """
@@ -9,6 +11,9 @@ def bookends(li: list):
     :param list:
     :return:
     """
+    x=[li.pop(0),li.pop(-1)]
+    return x
+
 
 
 
@@ -18,7 +23,10 @@ def inOrder(li : list):
     :param list:
     :return:
     """
-
+    for i in range(0,len(li)-1,1):
+        if li[i+1]<li[i]:
+            return False
+    return True
 
 
 def find(li: list, target : int):
@@ -38,6 +46,10 @@ def find(li: list, target : int):
     :param target:
     :return:
     """
+    for i in range(len(li)):
+        if li[i]==target:
+            return i
+    return -1
 
 
 def removeLowest(li):
@@ -48,7 +60,9 @@ def removeLowest(li):
     :param list:
     :return:
     """
-
+    lowest=min(li)
+    li.remove(lowest)
+    return li
 
 def keepOrder(li: list, value):
     """
@@ -59,7 +73,9 @@ def keepOrder(li: list, value):
     :param value:
     :return:
     """
-
+    li.append(value)
+    li.sort()
+    return li
 
 def merge(l1:list, l2:list):
     """
@@ -70,4 +86,7 @@ def merge(l1:list, l2:list):
     :param l2:
     :return:
     """
+    x=sorted(l1+l2)
+    return x
+
     
